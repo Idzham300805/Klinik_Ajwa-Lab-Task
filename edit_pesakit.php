@@ -12,7 +12,7 @@
 <h2> Edit a record </h2>
 
 <?php
-// Look for a valid user id, either through GET or POST
+
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
     $id = $_GET['id'];
 } elseif ((isset($_POST['id'])) && (is_numeric($_POST['id']))) {
@@ -25,28 +25,28 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $error = array(); 
 
-    // Look for FirstName
+    
     if (empty($_POST['FirstName_P'])) {
         $error[] = 'You forgot to enter the First Name.';
     } else {
         $n = mysqli_real_escape_string($connect, trim($_POST['FirstName_P']));
     }
 
-    // Look for LastName
+   
     if (empty($_POST['LastName_P'])) {
         $error[] = 'You forgot to enter the Last Name.';
     } else {
         $l = mysqli_real_escape_string($connect, trim($_POST['LastName_P']));
     }
 
-    // Look for Insurance Number
+    
     if (empty($_POST['InsuranceNumber'])) {
         $error[] = 'You forgot to enter the Insurance Number.';
     } else {
         $in = mysqli_real_escape_string($connect, trim($_POST['InsuranceNumber']));
     }
 
-    // Look for Diagnose
+    
     if (empty($_POST['Diagnose'])) {
         $error[] = 'You forgot to enter the Diagnose.';
     } else {
